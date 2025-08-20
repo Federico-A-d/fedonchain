@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Smart - FedOnChain</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* CSS integrato per effetti futuristici */
+    body {
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
+      overflow-x: hidden;
+    }
+
+    /* Effetto neon glow per titoli */
+    .neon-text {
+      text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
+      animation: neon-glow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes neon-glow {
+      from {
+        text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffd700;
+      }
+      to {
+        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700;
+      }
+    }
+
+    /* Animazione fade-in per sezioni */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hover effect per bottoni con glow */
+    .btn-glow {
+      transition: all 0.3s ease;
+    }
+
+    .btn-glow:hover {
+      box-shadow: 0 0 15px #ffd700, 0 0 25px #ffd700;
+      transform: scale(1.05);
+    }
+
+    /* Particelle di background futuristico (simulato con CSS) */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      background: #ffd700;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 10s infinite linear;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.3; }
+      50% { opacity: 0.6; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    /* Genera particelle random */
+    .particle:nth-child(1) { left: 10%; width: 5px; height: 5px; animation-duration: 15s; }
+    .particle:nth-child(2) { left: 20%; width: 3px; height: 3px; animation-duration: 20s; animation-delay: 2s; }
+    .particle:nth-child(3) { left: 30%; width: 4px; height: 4px; animation-duration: 18s; animation-delay: 4s; }
+    .particle:nth-child(4) { left: 40%; width: 6px; height: 6px; animation-duration: 12s; animation-delay: 1s; }
+    .particle:nth-child(5) { left: 50%; width: 2px; height: 2px; animation-duration: 25s; animation-delay: 3s; }
+    .particle:nth-child(6) { left: 60%; width: 5px; height: 5px; animation-duration: 16s; animation-delay: 5s; }
+    .particle:nth-child(7) { left: 70%; width: 3px; height: 3px; animation-duration: 22s; animation-delay: 6s; }
+    .particle:nth-child(8) { left: 80%; width: 4px; height: 4px; animation-duration: 14s; animation-delay: 7s; }
+    .particle:nth-child(9) { left: 90%; width: 5px; height: 5px; animation-duration: 19s; animation-delay: 8s; }
+    .particle:nth-child(10) { left: 95%; width: 3px; height: 3px; animation-duration: 17s; animation-delay: 9s; }
+
+    /* Miglioramenti responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-black via-gray-900 to-gray-800 text-gray-100 font-sans relative">
+  <!-- Particelle di background futuristico -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- HERO -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative z-10 fade-in" style="animation-delay: 0.2s;">
+    <h1 class="text-4xl md:text-6xl font-bold text-yellow-400 drop-shadow-lg neon-text">
+      Crypto Smart
+    </h1>
+    <p class="mt-4 text-xl md:text-2xl text-gray-300 max-w-2xl">
+      Costruisci un Portfolio Diversificato e Resiliente nel mondo delle Criptovalute
+    </p>
+    <a href="#download" class="mt-6 px-8 py-4 bg-yellow-400 text-black font-bold rounded-xl shadow-lg btn-glow">
+      Scarica l'Ebook Gratis
+    </a>
+    <div class="mt-12 animate-pulse">
+      <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin" class="w-24 mx-auto opacity-80">
+    </div>
+  </section>
+
+  <!-- DESCRIZIONE LIBRO -->
+  <section id="download" class="py-20 px-6 max-w-4xl mx-auto text-center fade-in" style="animation-delay: 0.4s;">
+    <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-6 neon-text">Perché questo ebook?</h2>
+    <p class="text-lg text-gray-300 leading-relaxed">
+      All’interno di <span class="font-semibold">Crypto Smart</span> troverai strategie chiare e pratiche per gestire il rischio, diversificare i tuoi asset e capire come muoverti in un mercato volatile. È la guida pensata per chi vuole crescere in modo intelligente e sicuro nel mondo delle criptovalute.
+    </p>
+    <ul class="mt-8 text-left max-w-2xl mx-auto list-disc list-inside text-gray-300">
+      <li>Spiegazioni tecniche su blockchain e crypto</li>
+      <li>Recensioni dettagliate di exchange popolari</li>
+      <li>Guida agli airdrop e opportunità di guadagno</li>
+      <li>Strategie per un portfolio resiliente</li>
+      <li>E molto altro per navigare il futuro digitale</li>
+    </ul>
+    <!-- Aggiunto un link reale per download (sostituisci con il tuo link Gumroad o simile) -->
+    <a href="https://tuolinkperdownload.com" target="_blank" class="mt-8 inline-block px-8 py-4 bg-green-500 text-white font-bold rounded-xl shadow-lg btn-glow">
+      Scarica Ora
+    </a>
+  </section>
+
+  <!-- PROGETTO FEDONCHAIN -->
+  <section class="py-20 bg-gray-950 px-6 fade-in" style="animation-delay: 0.6s;">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-6 neon-text">Il Progetto FedOnChain</h2>
+      <p class="text-lg text-gray-300 leading-relaxed mb-8">
+        <span class="font-semibold">FedOnChain</span> è molto più di un ebook. È una community e un hub di contenuti per chi vuole davvero capire le criptovalute. Offriamo spiegazioni tecniche, recensioni trasparenti degli exchange, segnalazioni di airdrop e strategie per non perdere le opportunità del futuro digitale.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-gray-800 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold text-yellow-400 mb-2">Spiegazioni Tecniche</h3>
+          <p class="text-gray-300">Approfondimenti su blockchain, DeFi, NFT e tecnologie emergenti.</p>
+        </div>
+        <div class="p-6 bg-gray-800 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold text-yellow-400 mb-2">Recensioni Exchange</h3>
+          <p class="text-gray-300">Analisi imparziali di piattaforme come Binance, Coinbase e altre.</p>
+        </div>
+        <div class="p-6 bg-gray-800 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold text-yellow-400 mb-2">Airdrop e Opportunità</h3>
+          <p class="text-gray-300">Segnalazioni di airdrop, farming e modi per guadagnare crypto gratuitamente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY & CTA -->
+  <section class="py-20 px-6 max-w-4xl mx-auto text-center fade-in" style="animation-delay: 0.8s;">
+    <h2 class="text-2xl md:text-3xl font-bold text-yellow-400 mb-6 neon-text">Unisciti alla Community</h2>
+    <p class="text-lg text-gray-300 mb-8">
+      Resta aggiornato su tutte le novità: iscriviti ai nostri canali e inizia a costruire il tuo futuro crypto.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="https://t.me/tuocanale" target="_blank" class="px-6 py-3 bg-blue-500 rounded-lg shadow btn-glow">Telegram</a>
+      <a href="https://youtube.com/tuocanale" target="_blank" class="px-6 py-3 bg-red-500 rounded-lg shadow btn-glow">YouTube</a>
+      <a href="https://twitter.com/tuocanale" target="_blank" class="px-6 py-3 bg-sky-500 rounded-lg shadow btn-glow">Twitter</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-gray-500 text-sm relative z-10">
+    © 2025 FedOnChain - Tutti i diritti riservati | <a href="https://github.com/tuorepo" class="text-yellow-400 hover:underline">GitHub Repo</a>
+  </footer>
+</body>
+</html>
