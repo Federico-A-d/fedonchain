@@ -7,8 +7,6 @@
   <meta name="keywords" content="crypto, airdrop gratuiti, recensioni exchange, contenuti crypto, blockchain, DeFi">
   <title>Crypto Smart - FedOnChain</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Share buttons CDN gratuito -->
-  <script src="https://cdn.addthis.com/js/300/addthis_widget.js#pubid=ra-tuopubid" async></script>
   <style>
     body {
       background: linear-gradient(to bottom, #000000, #1a1a1a);
@@ -22,14 +20,6 @@
       from { text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffd700; }
       to { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700; }
     }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s forwards;
-    }
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
     .btn-glow {
       transition: all 0.3s ease;
     }
@@ -37,39 +27,19 @@
       box-shadow: 0 0 15px #ffd700, 0 0 25px #ffd700;
       transform: scale(1.05);
     }
-    .particles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .particle {
-      position: absolute;
-      background: #ffd700;
-      border-radius: 50%;
-      opacity: 0.3;
-      animation: float 10s infinite linear;
-    }
-    @keyframes float {
-      0% { transform: translateY(0); opacity: 0.3; }
-      50% { opacity: 0.6; }
-      100% { transform: translateY(-100vh); opacity: 0; }
-    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-black via-gray-900 to-gray-800 text-gray-100 font-sans relative">
 
   <!-- HERO -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative z-10 fade-in" style="animation-delay: 0.2s;">
-    <h1 class="text-4xl md:text-6xl font-bold text-yellow-400 drop-shadow-lg neon-text">Crypto Smart</h1>
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative z-10">
+    <h1 class="text-4xl md:text-6xl font-bold text-yellow-400 drop-shadow-lg neon-text">
+      Crypto Smart
+    </h1>
     <p class="mt-4 text-xl md:text-2xl text-gray-300 max-w-2xl">
       Costruisci un Portfolio Diversificato e Resiliente nel mondo delle Criptovalute
     </p>
-    <!-- BOTTONE MODIFICATO -->
+    <!-- Pulsante verso Telegram -->
     <a href="https://t.me/+_sTBM3XMN_oxYWE0" target="_blank" class="mt-6 px-8 py-4 bg-yellow-400 text-black font-bold rounded-xl shadow-lg btn-glow">
       Scarica l'Ebook Gratis
     </a>
@@ -79,7 +49,7 @@
   </section>
 
   <!-- DESCRIZIONE LIBRO -->
-  <section id="download" class="py-20 px-6 max-w-4xl mx-auto text-center fade-in" style="animation-delay: 0.4s;">
+  <section id="download" class="py-20 px-6 max-w-4xl mx-auto text-center">
     <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-6 neon-text">Perché questo ebook?</h2>
     <p class="text-lg text-gray-300 leading-relaxed">
       All’interno di <span class="font-semibold">Crypto Smart</span> troverai strategie chiare e pratiche per gestire il rischio, diversificare i tuoi asset e capire come muoverti in un mercato volatile.
@@ -91,10 +61,62 @@
       <li>Strategie per un portfolio resiliente</li>
       <li>E molto altro per navigare il futuro digitale</li>
     </ul>
-    <!-- BOTTONE MODIFICATO -->
+    <!-- Pulsante verso Telegram -->
     <a href="https://t.me/+_sTBM3XMN_oxYWE0" target="_blank" class="mt-8 inline-block px-8 py-4 bg-green-500 text-white font-bold rounded-xl shadow-lg btn-glow">
       Scarica Ora
     </a>
+  </section>
+
+  <!-- PROGETTO FEDONCHAIN -->
+  <section class="py-20 bg-gray-950 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-6 neon-text">Il Progetto FedOnChain</h2>
+      <p class="text-lg text-gray-300 leading-relaxed mb-12">
+        <span class="font-semibold">FedOnChain</span> è una community e un hub di contenuti crypto: recensioni exchange, segnalazioni di airdrop e strategie per navigare il futuro digitale.
+      </p>
+
+      <!-- Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition">
+          <h3 class="text-xl font-bold text-yellow-400 mb-2">Spiegazioni Tecniche</h3>
+          <p class="text-gray-300">Approfondimenti su blockchain, DeFi, NFT e nuove tecnologie.</p>
+        </div>
+        <div class="p-6 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition">
+          <h3 class="text-xl font-bold text-yellow-400 mb-2">Recensioni Exchange</h3>
+          <p class="text-gray-300">Analisi imparziali di piattaforme come Binance, Coinbase e altre.</p>
+        </div>
+        <div class="p-6 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition">
+          <h3 class="text-xl font-bold text-yellow-400 mb-2">Airdrop e Opportunità</h3>
+          <p class="text-gray-300">Segnalazioni di airdrop, farming e modi per guadagnare crypto gratuitamente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO YOUTUBE IN EVIDENZA -->
+  <section class="py-20 px-6 max-w-5xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-6 neon-text">Guarda l’Ultimo Video Completo</h2>
+    <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-lg">
+      <iframe class="w-full h-[400px] rounded-2xl" src="https://www.youtube.com/embed/TUO_VIDEO_ID" 
+        title="Ultimo Video FedOnChain" frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <!-- COMMUNITY & SOCIAL -->
+  <section class="py-20 px-6 max-w-5xl mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-yellow-400 mb-6 neon-text">Unisciti alla Community</h2>
+    <p class="text-lg text-gray-300 mb-10">
+      Resta aggiornato su tutte le novità: seguici sui nostri canali social per non perdere contenuti esclusivi.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="https://t.me/+_sTBM3XMN_oxYWE0" target="_blank" class="px-6 py-3 bg-blue-500 rounded-xl shadow btn-glow">Telegram</a>
+      <a href="https://youtube.com/tuocanale" target="_blank" class="px-6 py-3 bg-red-500 rounded-xl shadow btn-glow">YouTube</a>
+      <a href="https://twitter.com/tuocanale" target="_blank" class="px-6 py-3 bg-sky-500 rounded-xl shadow btn-glow">X / Twitter</a>
+      <a href="https://instagram.com/tuocanale" target="_blank" class="px-6 py-3 bg-pink-500 rounded-xl shadow btn-glow">Instagram</a>
+      <a href="https://tiktok.com/@tuocanale" target="_blank" class="px-6 py-3 bg-black text-white rounded-xl shadow btn-glow">TikTok</a>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -103,3 +125,6 @@
   </footer>
 </body>
 </html>
+
+
+
