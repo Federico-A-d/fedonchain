@@ -1,348 +1,273 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Scopri contenuti informativi su crypto, airdrop e exchange con FedOnChain. Scarica l'ebook Crypto Smart e unisciti alla community.">
-  <meta name="keywords" content="crypto, airdrop gratuiti, recensioni exchange, contenuti crypto, blockchain, DeFi">
-  <title>Crypto Smart - FedOnChain</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background: linear-gradient(to bottom, #000000, #1a1a1a);
-      overflow-x: hidden;
-      position: relative;
-    }
-    /* Grafica crypto avanzata: Particelle fluttuanti multiple con vari simboli e colori */
-    .crypto-particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-    .particle {
-      position: absolute;
-      font-size: 18px;
-      opacity: 0.7;
-      animation: float 8s ease-in-out infinite;
-    }
-    .particle.btc { color: #ffd700; content: '₿'; }
-    .particle.eth { color: #627eea; content: 'Ξ'; }
-    .particle.ltc { color: #a8b8d1; content: 'Ł'; }
-    .particle.doge { color: #c9b037; content: 'Ð'; }
-    /* Posizioni e delay per 8 particelle per un effetto più denso */
-    .particle:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-    .particle:nth-child(2) { top: 20%; left: 90%; animation-delay: 1s; }
-    .particle:nth-child(3) { top: 40%; left: 15%; animation-delay: 2s; }
-    .particle:nth-child(4) { top: 60%; left: 80%; animation-delay: 3s; }
-    .particle:nth-child(5) { top: 80%; left: 30%; animation-delay: 4s; }
-    .particle:nth-child(6) { top: 70%; left: 60%; animation-delay: 5s; }
-    .particle:nth-child(7) { top: 30%; left: 40%; animation-delay: 6s; }
-    .particle:nth-child(8) { top: 50%; left: 70%; animation-delay: 7s; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
-      33% { transform: translateY(-15px) rotate(120deg) scale(1.1); }
-      66% { transform: translateY(-5px) rotate(240deg) scale(0.9); }
-    }
-    /* Effetto rain matrix-like con simboli crypto */
-    .crypto-rain {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 2;
-      overflow: hidden;
-    }
-    .rain-drop {
-      position: absolute;
-      font-size: 14px;
-      color: #00ff41;
-      opacity: 0.8;
-      animation: rain-fall 3s linear infinite;
-      white-space: nowrap;
-    }
-    .rain-drop:nth-child(odd) { color: #ffd700; }
-    .rain-drop:nth-child(3n) { content: '₿ΞŁ'; }
-    .rain-drop:nth-child(4n) { content: 'BTC ETH'; }
-    /* Genera 10 gocce con posizione random-like */
-    .rain-drop:nth-child(1) { left: 10%; animation-delay: 0s; }
-    .rain-drop:nth-child(2) { left: 20%; animation-delay: 0.5s; }
-    .rain-drop:nth-child(3) { left: 30%; animation-delay: 1s; }
-    .rain-drop:nth-child(4) { left: 40%; animation-delay: 1.5s; }
-    .rain-drop:nth-child(5) { left: 50%; animation-delay: 2s; }
-    .rain-drop:nth-child(6) { left: 60%; animation-delay: 0.2s; }
-    .rain-drop:nth-child(7) { left: 70%; animation-delay: 0.7s; }
-    .rain-drop:nth-child(8) { left: 80%; animation-delay: 1.2s; }
-    .rain-drop:nth-child(9) { left: 90%; animation-delay: 1.7s; }
-    .rain-drop:nth-child(10) { left: 95%; animation-delay: 2.3s; }
-    @keyframes rain-fall {
-      0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }
-    /* Grafico lineare CSS per simulare chart crypto nel header */
-    .crypto-chart {
-      display: flex;
-      justify-content: space-around;
-      height: 50px;
-      margin: 20px auto;
-      max-width: 300px;
-      position: relative;
-    }
-    .chart-bar {
-      width: 20px;
-      background: linear-gradient(to top, #ffd700, #ffed4e);
-      animation: chart-grow 2s ease-out forwards;
-      border-radius: 10px 10px 0 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .chart-bar:nth-child(1) { height: 20%; animation-delay: 0s; }
-    .chart-bar:nth-child(2) { height: 40%; animation-delay: 0.2s; }
-    .chart-bar:nth-child(3) { height: 80%; animation-delay: 0.4s; }
-    .chart-bar:nth-child(4) { height: 60%; animation-delay: 0.6s; }
-    .chart-bar:nth-child(5) { height: 100%; animation-delay: 0.8s; }
-    @keyframes chart-grow {
-      from { height: 0; }
-      to { height: var(--height); }
-    }
-    /* Neon borders su sezioni */
-    .neon-border {
-      box-shadow: 
-        0 0 5px #ffd700,
-        inset 0 0 5px #ffd700,
-        0 0 20px #ffd700;
-      animation: border-pulse 2s infinite;
-    }
-    @keyframes border-pulse {
-      0%, 100% { box-shadow: 0 0 5px #ffd700, inset 0 0 5px #ffd700; }
-      50% { box-shadow: 0 0 20px #ffd700, inset 0 0 20px #ffd700, 0 0 40px #ffd700; }
-    }
-    /* Pulsing glow su bottoni e cards */
-    .pulse-glow {
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
-      70% { box-shadow: 0 0 0 20px rgba(255, 215, 0, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
-    }
-    .neon-text {
-      text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
-      animation: neon-glow 1.5s ease-in-out infinite alternate;
-    }
-    @keyframes neon-glow {
-      from { text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ffd700; }
-      to { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700; }
-    }
-    .btn-glow {
-      transition: all 0.3s ease;
-    }
-    .btn-glow:hover {
-      box-shadow: 0 0 15px #ffd700, 0 0 25px #ffd700;
-      transform: scale(1.05);
-    }
-    /* Hover scale su cards con rotazione */
-    .card-hover {
-      transition: all 0.4s ease;
-    }
-    .card-hover:hover {
-      transform: scale(1.05) rotateY(5deg);
-      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-    }
-    /* Stile Gumroad-like per la cover del libro */
-    .ebook-cover {
-      max-width: 300px;
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.3);
-      transition: all 0.3s ease;
-      animation: cover-float 3s ease-in-out infinite;
-    }
-    .ebook-cover:hover {
-      transform: scale(1.05) rotateY(5deg);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 50px rgba(255, 215, 0, 0.5);
-    }
-    @keyframes cover-float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-    .gumroad-section {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 26, 26, 0.8));
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 215, 0, 0.2);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scopri contenuti informativi su crypto, airdrop e exchange con FedOnChain. Scarica l'ebook Crypto Smart e unisciti alla community.">
+    <meta name="keywords" content="crypto, airdrop gratuiti, recensioni exchange, contenuti crypto, blockchain, DeFi, portfolio">
+    <title>Crypto Smart - FedOnChain | Analisi Professionale Crypto</title>
+    <!-- Carica Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carica il font Inter da Google Fonts per un look più professionale -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Sfondo bianco, testo scuro per alta leggibilità (stile Kraken/Finance App) */
+        body {
+            background-color: #ffffff;
+            color: #1f2937; /* Grigio scuro quasi nero per il testo principale */
+            font-family: 'Inter', sans-serif; /* Usa il font Inter */
+        }
+        /* Stile pulito per i bottoni con ombreggiatura più marcata */
+        .btn-clean {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            /* Ombreggiatura moderna: leggero box-shadow per elevazione */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+        }
+        .btn-clean:hover {
+            background-color: #1e40af; /* Blu più scuro */
+            transform: translateY(-3px); /* Leggero sollevamento */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        /* Stile minimal per le card con sollevamento e bordo blu sottile */
+        .card-minimal {
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 1rem; /* Arrotondamento standard */
+        }
+        .card-minimal:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Ombreggiatura elegante */
+            transform: translateY(-5px); /* Sollevamento più visibile */
+            border-color: #93c5fd; /* Bordo leggermente blu all'hover */
+        }
+        /* Linea di separazione pulita e colorata */
+        .separator-line {
+            height: 4px;
+            background: linear-gradient(to right, #2563eb, #3b82f6, #60a5fa);
+            width: 100%;
+            max-width: 100px;
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-black via-gray-900 to-gray-800 text-gray-100 font-sans relative">
+<body>
 
-  <!-- Particelle fluttuanti crypto -->
-  <div class="crypto-particles">
-    <div class="particle btc"></div>
-    <div class="particle eth"></div>
-    <div class="particle ltc"></div>
-    <div class="particle doge"></div>
-    <div class="particle btc"></div>
-    <div class="particle eth"></div>
-    <div class="particle ltc"></div>
-    <div class="particle doge"></div>
-  </div>
+    <!-- NAV BAR - Mantenuto lo stile pulito e sticky -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold text-gray-900">
+                <span class="text-blue-600">Fed</span>OnChain
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#download" class="text-gray-600 hover:text-blue-600 font-medium transition duration-150">Ebook</a>
+                <a href="#progetto" class="text-gray-600 hover:text-blue-600 font-medium transition duration-150">Progetto</a>
+                <a href="#analisi-llm" class="text-gray-600 hover:text-blue-600 font-medium transition duration-150">AI Analyzer</a>
+                <a href="#promozioni" class="text-gray-600 hover:text-blue-600 font-medium transition duration-150">Promozioni</a>
+            </nav>
+            <!-- CTA Button visibile nella nav bar per un accesso rapido -->
+            <a href="#download" class="hidden md:inline-block px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg btn-clean">
+                Scarica Ebook
+            </a>
+        </div>
+    </header>
 
-  <!-- Rain matrix crypto -->
-  <div class="crypto-rain">
-    <div class="rain-drop">₿</div>
-    <div class="rain-drop">Ξ</div>
-    <div class="rain-drop">₿ΞŁ</div>
-    <div class="rain-drop">BTC</div>
-    <div class="rain-drop">ETH</div>
-    <div class="rain-drop">₿</div>
-    <div class="rain-drop">Ξ</div>
-    <div class="rain-drop">₿Ξ</div>
-    <div class="rain-drop">DOGE</div>
-    <div class="rain-drop">LTC</div>
-  </div>
+    <!-- Sezione Hero Semplificata e Professionale -->
+    <section class="min-h-[60vh] flex flex-col justify-center items-center text-center px-6 pt-16 pb-12 bg-white">
+        <h1 class="text-6xl md:text-8xl font-extrabold text-gray-900 leading-none">
+            Crypto Smart
+        </h1>
+        <!-- Sottotitolo breve e incisivo per la proposta di valore -->
+        <p class="mt-4 text-2xl text-gray-700 max-w-3xl font-light">
+            Strategie d'investimento e analisi di mercato con dati concreti.
+        </p>
 
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative z-10">
-    <!-- Grafico chart nel header -->
-    <div class="crypto-chart mb-8">
-      <div class="chart-bar" style="--height: 20%;"></div>
-      <div class="chart-bar" style="--height: 40%;"></div>
-      <div class="chart-bar" style="--height: 80%;"></div>
-      <div class="chart-bar" style="--height: 60%;"></div>
-      <div class="chart-bar" style="--height: 100%;"></div>
-    </div>
-    <h1 class="text-4xl md:text-6xl font-bold text-yellow-400 drop-shadow-lg neon-text neon-border">
-      Crypto Smart
-    </h1>
-    <p class="mt-4 text-xl md:text-2xl text-gray-300 max-w-2xl">
-      Costruisci un Portfolio Diversificato e Resiliente nel mondo delle Criptovalute
-    </p>
-    <a href="Crypto_Smart_Ebook.pdf" download="Crypto_Smart_Ebook.pdf" class="mt-6 px-8 py-4 bg-yellow-400 text-black font-bold rounded-xl shadow-lg btn-glow pulse-glow">
-      Scarica l'Ebook Gratis
-    </a>
-  </section>
-
-  <!-- Sezione Download rivisitata in stile Gumroad -->
-  <section id="download" class="py-20 px-6 max-w-4xl mx-auto relative z-10 gumroad-section rounded-3xl mx-4 neon-border">
-    <div class="text-center mb-12">
-      <img src="cryptosmart.png" alt="Copertina Ebook Crypto Smart" class="ebook-cover mx-auto mb-6">
-    </div>
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-6 neon-text">Perché questo ebook?</h2>
-      <p class="text-lg text-gray-300 leading-relaxed mb-8 text-center">
-        All’interno di <span class="font-semibold">Crypto Smart</span> troverai strategie chiare e pratiche per gestire il rischio, diversificare i tuoi asset e capire come muoverti in un mercato volatile.
-      </p>
-      <ul class="mt-8 text-left max-w-2xl mx-auto list-disc list-inside text-gray-300 space-y-2">
-        <li>Spiegazioni tecniche su blockchain e crypto</li>
-        <li>Recensioni dettagliate di exchange popolari</li>
-        <li>Guida agli airdrop e opportunità di guadagno</li>
-        <li>Strategie per un portfolio resiliente</li>
-        <li>E molto altro per navigare il futuro digitale</li>
-      </ul>
-      <div class="mt-10 text-center">
-        <a href="Crypto_Smart_Ebook.pdf" download="Crypto_Smart_Ebook.pdf" class="inline-block px-12 py-5 bg-green-500 text-white font-bold rounded-xl shadow-lg btn-glow pulse-glow text-xl">
-          Scarica Ora - Gratuito!
+        <!-- Bottone CTA essenziale (reintrodotto per funzionalità landing) -->
+        <a href="Crypto_Smart_Ebook.pdf" download="Crypto_Smart_Ebook.pdf" class="mt-8 px-10 py-4 bg-blue-600 text-white font-bold rounded-lg btn-clean text-xl">
+            Scarica l'Ebook Gratuito
         </a>
-        <p class="text-sm text-gray-500 mt-4 italic">
-          Nessun pagamento richiesto. Solo il tuo interesse per le crypto!
+    </section>
+
+    <!-- Separatore visivo -->
+    <div class="max-w-7xl mx-auto px-6 mb-12">
+        <div class="separator-line"></div>
+    </div>
+
+    <!-- Sezione di Autorità (Mock Statistics) -->
+    <section class="py-10 px-6 max-w-6xl mx-auto text-center">
+        <h2 class="text-xl font-semibold text-gray-500 mb-8 tracking-widest uppercase">La Nostra Community in Numeri</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="p-4">
+                <p class="text-4xl font-extrabold text-gray-900">45k+</p>
+                <p class="text-sm text-gray-600 mt-1">Membri Community</p>
+            </div>
+            <div class="p-4">
+                <p class="text-4xl font-extrabold text-gray-900">120+</p>
+                <p class="text-sm text-gray-600 mt-1">Airdrop Segnalati</p>
+            </div>
+            <div class="p-4">
+                <p class="text-4xl font-extrabold text-gray-900">25</p>
+                <p class="text-sm text-gray-600 mt-1">Exchange Recensiti</p>
+            </div>
+            <div class="p-4">
+                <p class="text-4xl font-extrabold text-gray-900">100%</p>
+                <p class="text-sm text-gray-600 mt-1">Contenuto Gratuito</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sezione Download Ebook -->
+    <section id="download" class="py-20 px-6 max-w-4xl mx-auto bg-gray-50 rounded-2xl shadow-xl card-minimal mx-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 border-b-2 border-blue-600 inline-block pb-1">Ottieni il Tuo Ebook Gratuito</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <!-- Immagine di copertina (Sostituire l'URL con un'immagine di esempio se non esiste) -->
+                <div class="flex-shrink-0 w-full md:w-1/3">
+                    <img src="https://placehold.co/250x350/E5E7EB/1F2937?text=Crypto+Smart+Ebook" alt="Copertina Ebook Crypto Smart" class="w-full max-w-xs mx-auto rounded-xl shadow-2xl transition duration-300 hover:shadow-2xl">
+                </div>
+                <!-- Descrizione e Vantaggi -->
+                <div class="text-left md:w-2/3">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        All’interno di <span class="font-bold text-blue-600">Crypto Smart</span> troverai strategie chiare e pratiche per <span class="font-semibold">gestire il rischio, diversificare i tuoi asset</span> e operare in un mercato volatile con professionalità.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 pl-4 text-sm">
+                        <li><span class="font-medium">Spiegazioni tecniche</span>: Blockchain e DeFi per non esperti.</li>
+                        <li><span class="font-medium">Recensioni</span>: Analisi imparziali dei migliori exchange.</li>
+                        <li><span class="font-medium">Opportunità</span>: Guida completa a airdrop e farming.</li>
+                    </ul>
+                    <a href="Crypto_Smart_Ebook.pdf" download="Crypto_Smart_Ebook.pdf" class="mt-8 inline-block px-12 py-4 bg-blue-600 text-white font-bold rounded-lg btn-clean text-xl">
+                        Scarica Subito l'Ebook (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuova Sezione: Analisi AI (per un look professionale e tecnologico) -->
+    <section id="analisi-llm" class="py-20 px-6 max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 inline-block pb-1">Analisi Crypto Potenziata dall'AI</h2>
+        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto">
+            Sfrutta l'intelligenza artificiale per ottenere insight rapidi e riassunti concisi da report complessi. La nostra piattaforma è in continua evoluzione per offrirti un vantaggio informativo.
         </p>
-      </div>
-    </div>
-  </section>
 
-  <section class="py-20 bg-gray-950 px-6 relative z-10">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-6 neon-text neon-border">Il Progetto FedOnChain</h2>
-      <p class="text-lg text-gray-300 leading-relaxed mb-12">
-        <span class="font-semibold">FedOnChain</span> è una community e un hub di contenuti crypto: recensioni exchange, segnalazioni di airdrop e strategie per navigare il futuro digitale.
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-6 bg-gray-800 rounded-2xl shadow-lg card-hover neon-border">
-          <h3 class="text-xl font-bold text-yellow-400 mb-2">Spiegazioni Tecniche</h3>
-          <p class="text-gray-300">Approfondimenti su blockchain, DeFi, NFT e nuove tecnologie.</p>
+        <div class="bg-white p-8 rounded-2xl shadow-xl card-minimal text-left max-w-4xl mx-auto">
+            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <span class="text-2xl text-blue-600 mr-3">🤖</span> Riassunto Rapido LLM (Esempio)
+            </h3>
+            <div class="bg-gray-100 p-4 rounded-lg border border-gray-200">
+                <p class="text-gray-700 italic">
+                    "L'analisi on-chain delle ultime 72 ore suggerisce una stabilizzazione del volume di Bitcoin (BTC) con una leggera migrazione di capitali verso gli asset di layer-2. La dominanza di Ethereum (ETH) rimane elevata, indicando fiducia istituzionale nel settore DeFi e L2, nonostante le recenti fluttuazioni macroeconomiche globali."
+                </p>
+            </div>
+            <p class="text-sm text-gray-500 mt-4">
+                *Funzionalità in fase di sviluppo/anteprima. I dati mostrati sono a scopo illustrativo.
+            </p>
         </div>
-        <div class="p-6 bg-gray-800 rounded-2xl shadow-lg card-hover neon-border">
-          <h3 class="text-xl font-bold text-yellow-400 mb-2">Recensioni Exchange</h3>
-          <p class="text-gray-300">Analisi imparziali di piattaforme come Binance, Coinbase e altre.</p>
+    </section>
+
+    <!-- Sezione Progetto FedOnChain - Mantenuto lo stile a card minimali -->
+    <section id="progetto" class="py-20 bg-white px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 border-b-2 border-blue-600 inline-block pb-1">Il Progetto FedOnChain</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-12 max-w-4xl mx-auto">
+                <span class="font-semibold text-blue-600">FedOnChain</span> è il tuo hub di conoscenza per muoverti nel futuro digitale: analisi imparziali, report dettagliati e opportunità uniche.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="p-6 bg-white rounded-2xl shadow-lg card-minimal">
+                    <div class="text-blue-600 text-3xl mb-3 font-semibold">💡</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Spiegazioni Tecniche</h3>
+                    <p class="text-gray-600">Approfondimenti su blockchain, DeFi, NFT e meccanismi di consenso.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="p-6 bg-white rounded-2xl shadow-lg card-minimal">
+                    <div class="text-blue-600 text-3xl mb-3 font-semibold">📈</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Recensioni Exchange</h3>
+                    <p class="text-gray-600">Analisi imparziali di piattaforme top-tier per sicurezza e commissioni.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="p-6 bg-white rounded-2xl shadow-lg card-minimal">
+                    <div class="text-blue-600 text-3xl mb-3 font-semibold">🎁</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Airdrop Selezionati</h3>
+                    <p class="text-gray-600">Segnalazioni di airdrop e farming con alto potenziale di guadagno gratuito.</p>
+                </div>
+            </div>
         </div>
-        <div class="p-6 bg-gray-800 rounded-2xl shadow-lg card-hover neon-border">
-          <h3 class="text-xl font-bold text-yellow-400 mb-2">Airdrop e Opportunità</h3>
-          <p class="text-gray-300">Segnalazioni di airdrop, farming e modi per guadagnare crypto gratuitamente.</p>
+    </section>
+
+    <!-- Sezione Video - Mantenuto per la dimostrazione del contenuto -->
+    <section class="py-20 px-6 max-w-5xl mx-auto text-center bg-gray-50 rounded-2xl shadow-xl card-minimal">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 border-b-2 border-blue-600 inline-block pb-1">Analisi Video Dettagliata</h2>
+        <div class="rounded-2xl overflow-hidden shadow-2xl">
+            <!-- Nota: Ho fissato l'altezza per la compatibilità con i dispositivi mobili -->
+            <iframe class="w-full h-[300px] md:h-[500px]" src="https://www.youtube.com/embed/s8MLKQHrNj0"
+                title="Ultimo Video FedOnChain" frameborder="0" allowfullscreen>
+            </iframe>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="py-20 px-6 max-w-5xl mx-auto text-center relative z-10 neon-border">
-    <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-6 neon-text">Guarda l’Ultimo Video Completo</h2>
-    <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-lg pulse-glow">
-      <iframe class="w-full h-[400px] rounded-2xl" src="https://www.youtube.com/embed/s8MLKQHrNj0"
-        title="Ultimo Video FedOnChain" frameborder="0" allowfullscreen>
-      </iframe>
-    </div>
-  </section>
-
-  <section class="py-20 px-6 max-w-5xl mx-auto text-center relative z-10">
-    <h2 class="text-2xl md:text-3xl font-bold text-yellow-400 mb-6 neon-text">Unisciti alla Community</h2>
-    <p class="text-lg text-gray-300 mb-10">
-      Resta aggiornato su tutte le novità: seguici sui nostri canali social per non perdere contenuti esclusivi.
-    </p>
-
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="https://t.me/+_sTBM3XMN_oxYWE0" target="_blank" class="px-6 py-3 bg-blue-500 rounded-xl shadow btn-glow pulse-glow">Telegram Community</a>
-      <a href="https://www.youtube.com/@fedonchain" target="_blank" class="px-6 py-3 bg-red-500 rounded-xl shadow btn-glow pulse-glow">YouTube</a>
-      <a href="https://x.com/fedonchain" target="_blank" class="px-6 py-3 bg-sky-500 rounded-xl shadow btn-glow pulse-glow">X / Twitter</a>
-      <a href="https://www.instagram.com/fedonchain/" target="_blank" class="px-6 py-3 bg-pink-500 rounded-xl shadow btn-glow pulse-glow">Instagram</a>
-      <a href="https://www.tiktok.com/@fedonchain" target="_blank" class="px-6 py-3 bg-black text-white rounded-xl shadow btn-glow pulse-glow">TikTok</a>
-    </div>
-  </section>
-
-  <!-- Sezione Linktree e Promozioni -->
-  <section class="py-20 px-6 max-w-6xl mx-auto relative z-10 neon-border">
-    <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-12 text-center neon-text">Link & Promozioni Esclusive</h2>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-      <!-- Linktree a sinistra -->
-      <div class="text-center">
-        <h3 class="text-xl font-bold text-yellow-400 mb-4 neon-text">Il Mio Linktree</h3>
-        <p class="text-gray-300 mb-6">Tutti i link in un posto solo!</p>
-        <div class="rounded-2xl overflow-hidden shadow-lg mx-auto max-w-md neon-border pulse-glow">
-          <iframe src="https://linktr.ee/Federico12k?embed=true" width="100%" height="500" frameborder="0" class="w-full"></iframe>
-        </div>
-      </div>
-      
-      <!-- Promozioni a destra -->
-      <div class="text-left">
-        <h3 class="text-xl font-bold text-yellow-400 mb-4 neon-text">Promozioni Principali</h3>
-        <p class="text-lg text-gray-300 mb-6">
-          Scopri le migliori opportunità per iniziare con le crypto. Ecco un esempio top:
+    <!-- Sezione Community -->
+    <section id="community" class="py-20 px-6 max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 border-b-2 border-blue-600 inline-block pb-1">Canali Ufficiali & Contatto</h2>
+        <p class="text-lg text-gray-700 mb-10">
+            Seguici per aggiornamenti in tempo reale e approfondimenti esclusivi.
         </p>
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg card-hover neon-border">
-          <h4 class="text-lg font-bold text-yellow-400 mb-2">Kraken: Uno degli Exchange Migliori</h4>
-          <p class="text-gray-300 mb-4">
-            Kraken è uno degli exchange migliori per trading crypto, con fees basse e supporto 24/7. 
-            Registrati con il mio link referral esclusivo, fai un trade di almeno 10€ e ricevi 10€ in Bitcoin come bonus! 
-            (Promozione valida fino al 31 gennaio 2026).
-          </p>
-          <a href="TUO_LINK_REFERRAL_KRAKEN" target="_blank" class="inline-block px-6 py-3 bg-blue-600 text-white font-bold rounded-xl shadow btn-glow pulse-glow">
-            Registrati su Kraken e Ottieni il Bonus
-          </a>
-          <p class="text-sm text-gray-500 mt-4 italic">
-            *Disclaimer: Le promozioni sono soggette a termini e condizioni. Verifica sempre sul sito ufficiale.
-          </p>
-        </div>
-        <!-- Aggiungi altre promozioni qui se vuoi -->
-      </div>
-    </div>
-  </section>
 
-  <footer class="py-8 text-center text-gray-500 text-sm relative z-10 neon-border">
-    © 2025 FedOnChain - Tutti i diritti riservati
-  </footer>
+        <div class="flex flex-wrap justify-center gap-4">
+            <!-- Colori dei bottoni adattati per coerenza o mantenuti per riconoscimento social -->
+            <a href="https://t.me/+_sTBM3XMN_oxYWE0" target="_blank" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium btn-clean hover:bg-blue-700">Telegram Community</a>
+            <a href="https://www.youtube.com/@fedonchain" target="_blank" class="px-6 py-3 bg-red-600 text-white rounded-lg font-medium btn-clean hover:bg-red-700">YouTube</a>
+            <a href="https://x.com/fedonchain" target="_blank" class="px-6 py-3 bg-gray-800 text-white rounded-lg font-medium btn-clean hover:bg-black">X / Twitter</a>
+            <a href="https://www.instagram.com/fedonchain/" target="_blank" class="px-6 py-3 bg-pink-600 text-white rounded-lg font-medium btn-clean hover:bg-pink-700">Instagram</a>
+            <a href="https://www.tiktok.com/@fedonchain" target="_blank" class="px-6 py-3 bg-black text-white rounded-lg font-medium btn-clean hover:bg-gray-700">TikTok</a>
+        </div>
+    </section>
+
+    <!-- Sezione Linktree e Promozioni -->
+    <section id="promozioni" class="py-20 px-6 max-w-6xl mx-auto bg-gray-50 rounded-2xl shadow-xl card-minimal">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center border-b-2 border-blue-600 inline-block pb-1">Link & Promozioni Esclusive per i Partner</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <!-- Linktree a sinistra -->
+            <div class="text-center bg-white p-6 rounded-xl shadow-lg card-minimal">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Il Mio Linktree Completo</h3>
+                <p class="text-gray-700 mb-6">Accesso rapido a tutti i servizi e piattaforme raccomandate.</p>
+                <div class="rounded-lg overflow-hidden shadow-inner mx-auto max-w-md border border-gray-200">
+                    <iframe src="https://linktr.ee/Federico12k?embed=true" width="100%" height="400" frameborder="0" class="w-full"></iframe>
+                </div>
+            </div>
+            
+            <!-- Promozioni a destra -->
+            <div class="text-left bg-white p-6 rounded-xl shadow-lg card-minimal">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">La Nostra Partnership Top</h3>
+                <p class="text-lg text-gray-700 mb-6">
+                    Scegli solo piattaforme regolamentate e affidabili per le tue operazioni.
+                </p>
+                <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-600 shadow-md">
+                    <h4 class="text-xl font-bold text-blue-800 mb-2">Kraken: Inizia con un Vantaggio!</h4>
+                    <p class="text-gray-700 mb-4">
+                        Kraken è sinonimo di sicurezza e basse commissioni nel trading crypto. Registrati con il mio link e ricevi un bonus di 10€ in Bitcoin dopo aver effettuato un trade di soli 10€.
+                    </p>
+                    <a href="TUO_LINK_REFERRAL_KRAKEN" target="_blank" class="inline-block px-6 py-3 bg-blue-600 text-white font-bold rounded-lg btn-clean">
+                        Ottieni il Bonus su Kraken
+                    </a>
+                    <p class="text-sm text-gray-500 mt-4 italic">
+                        *Promozione valida fino al 31 gennaio 2026. Si applicano termini e condizioni.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-200 mt-10 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-2">© 2025 FedOnChain - Tutti i diritti riservati</p>
+            <div class="space-x-4">
+                <a href="#" class="text-gray-500 hover:text-gray-900 transition duration-150">Privacy Policy</a>
+                <a href="#" class="text-gray-500 hover:text-gray-900 transition duration-150">Termini e Condizioni</a>
+                <a href="#" class="text-gray-500 hover:text-gray-900 transition duration-150">Disclaimer Investimenti</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
