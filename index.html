@@ -58,8 +58,31 @@
             padding: 12px 16px;
             border-bottom: 1px solid #f3f4f6;
         }
+        /* Stile per la Call to Action finale */
+        .final-cta {
+            background-color: #1e40af; /* Blu Scuro/Navy per contrasto */
+            color: #ffffff;
+            font-weight: 700;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 1.25rem;
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1); /* Ombreggiatura in alto */
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            z-index: 100; /* Assicura che sia sopra gli altri elementi */
+        }
     </style>
-</head>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMF487PXHL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-YMF487PXHL');
+    </script>
+    </head>
 <body>
     <header class="bg-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
@@ -255,6 +278,11 @@
             </div>
         </div>
     </section>
+    
+    <a href="#download" class="final-cta block md:hidden">
+        SCARICA SUBITO LA GUIDA GRATUITA CRYPTO SMART!
+    </a>
+
     <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-200 mt-10 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <p class="mb-2">© 2025 Nextgenfinance - Tutti i diritti riservati</p>
