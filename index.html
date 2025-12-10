@@ -1,235 +1,317 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Scarica la guida definitiva Crypto Smart. Analisi, Airdrop e Strategie per investire senza rischi. Visto su TikTok.">
-    <title>NextGen Finance | Guida Crypto Gratuita & Risorse</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8fafc; /* Grigio molto chiaro, meno stancante del bianco puro */
-            color: #0f172a; 
-            font-family: 'Inter', sans-serif;
-        }
-        
-        /* Effetto "Pulse" per il bottone principale */
-        @keyframes pulse-blue {
-            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.23);
-        }
-        .btn-pulse {
-            animation: pulse-blue 2s infinite;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scarica la guida esclusiva Crypto Smart. Strategie d'élite per investire.">
+    <title>NextGen Finance | Elite Crypto Resources</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            --blue-glow: 0 0 40px -10px rgba(37, 99, 235, 0.3);
+        }
+        
+        body {
+            background-color: #FAFAFA;
+            background-image: radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.03) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(251, 191, 36, 0.05) 0px, transparent 50%);
+            color: #1e293b;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
 
-        /* Card Styles */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-        }
+        h1, h2, h3, .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
 
-        /* Badge TikTok */
-        .tiktok-badge {
-            background: black;
-            color: white;
-            font-size: 0.75rem;
-            padding: 4px 12px;
-            border-radius: 999px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: 700;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMF487PXHL"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-YMF487PXHL');
-    </script>
+        /* Luxury Button */
+        .btn-luxury {
+            background: #0f172a;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .btn-luxury::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn-luxury:hover::after {
+            left: 100%;
+        }
+
+        .btn-luxury:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.4);
+        }
+
+        /* Glass Cards Premium */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 
+                        0 2px 4px -1px rgba(0, 0, 0, 0.03),
+                        inset 0 0 0 1px rgba(255,255,255,0.5);
+        }
+
+        /* Text Gradients */
+        .text-gradient-gold {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMF487PXHL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YMF487PXHL');
+    </script>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-amber-100 selection:text-amber-900">
 
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-black tracking-tighter text-gray-900">
-                NEXTGEN<span class="text-blue-600">FINANCE</span>
-            </div>
-            <a href="#download" class="text-sm font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-full hover:bg-blue-100 transition">
-                Scarica Guida
-            </a>
-        </div>
-    </header>
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tight text-slate-900">
+                NEXTGEN<span class="text-blue-700">FINANCE</span>
+            </div>
+            <a href="#download" class="hidden md:inline-flex items-center justify-center px-6 py-2 text-sm font-medium text-slate-900 bg-white border border-gray-200 rounded-full hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm">
+                Scarica Guida
+            </a>
+        </div>
+    </nav>
 
-    <section class="pt-12 pb-16 px-6 text-center max-w-4xl mx-auto">
-        <div class="flex justify-center mb-6">
-            <span class="tiktok-badge">
-                <svg fill="white" width="14" height="14" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-                Visto da 200k+ su TikTok
-            </span>
-        </div>
-        
-        <h1 class="text-5xl md:text-7xl font-black text-gray-900 leading-tight mb-6">
-            Smetti di investire <br><span class="text-blue-600">a caso.</span>
-        </h1>
-        
-        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-            La guida pratica (e gratuita) per passare da "non ci capisco nulla" a creare un portafoglio Crypto solido e sicuro.
-        </p>
-        
-        <div class="flex flex-col items-center gap-4">
-            <a href="Crypto_Smart_Ebook.pdf" download="Crypto_Smart_Ebook.pdf" class="btn-primary btn-pulse text-white text-xl font-bold py-4 px-12 rounded-xl w-full md:w-auto shadow-xl transform transition hover:scale-105">
-                📥 SCARICA LA GUIDA GRATIS
-            </a>
-            <p class="text-xs text-gray-400 uppercase tracking-wider">Disponibile Instantaneamente • PDF Sicuro</p>
-        </div>
-    </section>
+    <section class="relative pt-32 pb-20 px-6 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl -z-10 opacity-40 pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div class="absolute top-20 right-10 w-72 h-72 bg-amber-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        </div>
 
-    <section class="bg-white py-8 border-y border-gray-100">
-        <div class="max-w-4xl mx-auto px-6 grid grid-cols-3 gap-4 text-center divide-x divide-gray-100">
-            <div>
-                <p class="text-2xl md:text-3xl font-black text-gray-900">214K+</p>
-                <p class="text-xs text-gray-500 font-medium uppercase mt-1">Views Video</p>
-            </div>
-            <div>
-                <p class="text-2xl md:text-3xl font-black text-gray-900">100%</p>
-                <p class="text-xs text-gray-500 font-medium uppercase mt-1">Gratuito</p>
-            </div>
-            <div>
-                <p class="text-2xl md:text-3xl font-black text-gray-900">24/7</p>
-                <p class="text-xs text-gray-500 font-medium uppercase mt-1">Community</p>
-            </div>
-        </div>
-    </section>
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 text-white text-xs font-semibold tracking-widest uppercase mb-8 shadow-lg animate-float">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                Trending su TikTok
+            </div>
 
-    <section id="download" class="py-16 px-6 max-w-5xl mx-auto">
-        <div class="glass-card rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10">
-            <div class="w-full md:w-1/2 relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                <div class="relative bg-gray-900 text-white h-64 rounded-xl flex items-center justify-center shadow-2xl">
-                    <div class="text-center p-6">
-                        <p class="text-4xl mb-2">📚</p>
-                        <h3 class="font-bold text-2xl">CRYPTO SMART</h3>
-                        <p class="text-gray-400 text-sm mt-2">Edizione 2025</p>
-                    </div>
-                    </div>
-            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-slate-900 leading-[1.1] mb-8 tracking-tight">
+                Investire non è <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-900 italic serif-font">un gioco d'azzardo.</span>
+            </h1>
 
-            <div class="w-full md:w-1/2">
-                <h2 class="text-3xl font-bold text-gray-900 mb-6">Cosa impari in 15 minuti:</h2>
-                <ul class="space-y-4">
-                    <li class="flex items-start gap-3">
-                        <span class="bg-green-100 text-green-700 rounded-full p-1 text-xs font-bold mt-1">✓</span>
-                        <span class="text-gray-700 font-medium">Come comprare Bitcoin senza farsi fregare dalle commissioni.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="bg-green-100 text-green-700 rounded-full p-1 text-xs font-bold mt-1">✓</span>
-                        <span class="text-gray-700 font-medium">Le 3 altcoin che sto monitorando per il 2025.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="bg-green-100 text-green-700 rounded-full p-1 text-xs font-bold mt-1">✓</span>
-                        <span class="text-gray-700 font-medium">Strategia "Airdrop": Come ottenere token gratis legalmente.</span>
-                    </li>
-                </ul>
-                <a href="Crypto_Smart_Ebook.pdf" download="Crypto_Smart_Ebook.pdf" class="mt-8 inline-block w-full text-center bg-gray-900 text-white font-bold py-4 rounded-xl hover:bg-gray-800 transition shadow-lg">
-                    Scarica il PDF Ora ➔
-                </a>
-            </div>
-        </div>
-    </section>
+            <p class="text-lg md:text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+                L'approccio analitico per costruire un patrimonio crypto solido. <br>
+                Niente hype, solo strategie verificate.
+            </p>
 
-    <section id="monetizzazione" class="py-12 px-6 bg-white">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-2xl font-bold text-center mb-8 text-gray-900">🎁 I Bonus per la Community</h2>
-            
-            <a href="https://proinvite.kraken.com/9f1e/80zr4wji" target="_blank" class="group block bg-white border-2 border-blue-100 rounded-2xl p-6 mb-6 hover:border-blue-500 transition duration-300 shadow-sm hover:shadow-xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-yellow-400 text-xs font-bold px-3 py-1 rounded-bl-lg">BONUS $75 ATTIVO</div>
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-4">
-                        <div class="bg-blue-100 p-3 rounded-lg text-2xl">🐙</div>
-                        <div>
-                            <h3 class="font-bold text-gray-900 text-lg group-hover:text-blue-600 transition">Kraken Exchange</h3>
-                            <p class="text-sm text-gray-500">Registrati e ottieni **75$ GRATIS!** Codice: **rtckzdwb**</p>
-                        </div>
-                    </div>
-                    <span class="text-gray-300 group-hover:text-blue-600 font-bold text-2xl transition">→</span>
-                </div>
-            </a>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="Crypto_Smart_Ebook.pdf" download class="btn-luxury text-white text-lg font-medium py-4 px-10 rounded-xl shadow-2xl w-full sm:w-auto">
+                    Scaricare il Dossier
+                </a>
+            </div>
+            <p class="mt-4 text-xs text-slate-400 uppercase tracking-widest font-medium">Accesso Immediato • PDF Sicuro</p>
+        </div>
+    </section>
 
-            <a href="TUO_LINK_REFERRAL_LEDGER" target="_blank" class="group block bg-white border border-gray-200 rounded-2xl p-5 mb-4 hover:border-gray-400 transition hover:shadow-md">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-4">
-                        <div class="bg-gray-100 p-3 rounded-lg text-2xl">🔐</div>
-                        <div>
-                            <h3 class="font-bold text-gray-900">Ledger Nano</h3>
-                            <p class="text-sm text-gray-500">Proteggi le tue crypto (Hardware Wallet)</p>
-                        </div>
-                    </div>
-                    <span class="text-gray-300 group-hover:text-gray-900 transition">→</span>
-                </div>
-            </a>
-        </div>
-    </section>
+    <div class="border-y border-gray-200 bg-white/50 backdrop-blur-sm">
+        <div class="max-w-5xl mx-auto grid grid-cols-3 divide-x divide-gray-200">
+            <div class="py-6 text-center">
+                <span class="block text-3xl font-bold text-slate-900 serif-font">214K</span>
+                <span class="text-xs text-slate-500 uppercase tracking-widest mt-1">Visualizzazioni</span>
+            </div>
+            <div class="py-6 text-center">
+                <span class="block text-3xl font-bold text-slate-900 serif-font">0€</span>
+                <span class="text-xs text-slate-500 uppercase tracking-widest mt-1">Costo Guida</span>
+            </div>
+            <div class="py-6 text-center">
+                <span class="block text-3xl font-bold text-slate-900 serif-font">24/7</span>
+                <span class="text-xs text-slate-500 uppercase tracking-widest mt-1">Supporto</span>
+            </div>
+        </div>
+    </div>
 
-    <section class="py-16 px-6 max-w-4xl mx-auto text-center">
-        <h2 class="text-2xl font-bold mb-6">🚀 Prossimi Airdrop (Free Money)</h2>
-        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg">
-            <table class="w-full text-left text-sm">
-                <thead class="bg-gray-50 border-b border-gray-200">
-                    <tr>
-                        <th class="p-4 text-gray-500 font-semibold">Progetto</th>
-                        <th class="p-4 text-gray-500 font-semibold">Potenziale</th>
-                        <th class="p-4 text-gray-500 font-semibold text-right">Stato</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-100">
-                    <tr>
-                        <td class="p-4 font-bold text-gray-800">LayerZero</td>
-                        <td class="p-4"><span class="bg-green-100 text-green-700 py-1 px-2 rounded text-xs font-bold">ALTO $$$</span></td>
-                        <td class="p-4 text-right text-blue-600 font-bold">Attivo</td>
-                    </tr>
-                    <tr>
-                        <td class="p-4 font-bold text-gray-800">Linea</td>
-                        <td class="p-4"><span class="bg-green-100 text-green-700 py-1 px-2 rounded text-xs font-bold">ALTO $$$</span></td>
-                        <td class="p-4 text-right text-blue-600 font-bold">Attivo</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="p-4 bg-gray-50 border-t border-gray-200">
-                <a href="Crypto_Smart_Ebook.pdf" class="text-blue-600 font-bold text-sm hover:underline">Scarica la guida per vedere come parteciparvi →</a>
-            </div>
-        </div>
-    </section>
+    <section id="download" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="glass-panel rounded-[2rem] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-16 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full filter blur-[100px] opacity-50 pointer-events-none"></div>
 
-    <footer class="py-10 text-center text-gray-400 text-sm">
-        <div class="flex justify-center gap-6 mb-6">
-            <a href="https://t.me/+_sTBM3XMN_oxYWE0" class="hover:text-blue-500 transition">Telegram</a>
-            <a href="https://www.tiktok.com/@next_gen_finance" class="hover:text-black transition">TikTok</a>
-        </div>
-        <p>© 2025 NextGen Finance. Non è una consulenza finanziaria.</p>
-    </footer>
+                <div class="w-full lg:w-1/2 relative z-10">
+                    <div class="relative group perspective-1000">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-slate-900 to-blue-900 transform rotate-[-2deg] rounded-xl opacity-20 blur-lg transition duration-500 group-hover:rotate-[-4deg] group-hover:opacity-40"></div>
+                        <div class="relative bg-gradient-to-br from-slate-800 to-slate-950 p-1 rounded-xl shadow-2xl transform transition duration-500 group-hover:-translate-y-2">
+                            <div class="h-[400px] rounded-lg border border-white/10 flex flex-col items-center justify-center text-center p-8 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+                                <div class="w-20 h-20 mb-6 bg-gradient-to-br from-amber-300 to-amber-600 rounded-full flex items-center justify-center shadow-lg">
+                                    <span class="text-3xl">📖</span>
+                                </div>
+                                <h3 class="text-3xl font-bold text-white serif-font tracking-wide mb-2">CRYPTO SMART</h3>
+                                <p class="text-blue-200 text-sm uppercase tracking-[0.2em]">Private Edition 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="fixed bottom-4 left-4 right-4 md:hidden z-50">
-        <a href="Crypto_Smart_Ebook.pdf" download class="block w-full bg-blue-600 text-white text-center font-bold py-3 rounded-lg shadow-2xl btn-pulse">
-            Scarica Guida Gratis 👇
-        </a>
-    </div>
+                <div class="w-full lg:w-1/2 relative z-10">
+                    <h2 class="text-4xl font-bold text-slate-900 mb-8 serif-font">L'intelligence finanziaria <br> in 15 minuti.</h2>
+                    
+                    <ul class="space-y-6 mb-10">
+                        <li class="flex items-start gap-4 group">
+                            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition">
+                                <svg class="w-4 h-4 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900">Acquisto Strategico</h4>
+                                <p class="text-slate-500 text-sm leading-relaxed">Come comprare Bitcoin abbattendo le commissioni bancarie e spread nascosti.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 group">
+                            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition">
+                                <svg class="w-4 h-4 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900">Market Watch 2025</h4>
+                                <p class="text-slate-500 text-sm leading-relaxed">Le 3 asset class che gli istituzionali stanno accumulando silenziosamente.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 group">
+                            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition">
+                                <svg class="w-4 h-4 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900">Protocollo Airdrop</h4>
+                                <p class="text-slate-500 text-sm leading-relaxed">Generare liquidità dai protocolli di testnet senza rischiare capitale.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="Crypto_Smart_Ebook.pdf" download class="inline-flex items-center gap-3 text-slate-900 font-bold border-b-2 border-slate-900 pb-1 hover:text-blue-700 hover:border-blue-700 transition-colors">
+                        Scarica il PDF Ora <span class="text-xl">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="monetizzazione" class="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 serif-font mb-4">Benefit per la Community</h2>
+                <p class="text-slate-500">Abbiamo negoziato condizioni privilegiate con i partner.</p>
+            </div>
+            
+            <a href="https://proinvite.kraken.com/9f1e/80zr4wji" target="_blank" class="group relative block bg-white rounded-2xl p-8 mb-8 transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(37,99,235,0.15)] border border-gray-100 overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-amber-300 to-amber-500"></div>
+                
+                <div class="absolute top-4 right-4 bg-amber-50 text-amber-700 border border-amber-100 text-[10px] font-bold px-3 py-1 rounded-full tracking-wider uppercase flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                    Bonus $75 Attivo
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 rounded-xl bg-slate-50 border border-gray-100 flex items-center justify-center text-3xl shadow-sm group-hover:scale-105 transition-transform">
+                        🐙
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-xl text-slate-900 group-hover:text-blue-700 transition-colors">Kraken Pro Exchange</h3>
+                        <p class="text-sm text-slate-500 mt-1 mb-2">Piattaforma istituzionale per crypto trading.</p>
+                        
+                        <div class="flex flex-wrap items-center gap-2 text-xs">
+                            <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded border border-blue-100 font-mono font-medium">Codice: rtckzdwb</span>
+                            <span class="text-green-600 font-bold bg-green-50 px-2 py-1 rounded border border-green-100">+ $75 Accredito Immediato</span>
+                        </div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <span class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-slate-900 group-hover:text-white group-hover:border-slate-900 transition-all">
+                            →
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="TUO_LINK_REFERRAL_LEDGER" target="_blank" class="group block bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-300 transition-all hover:shadow-lg">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-5">
+                        <div class="w-12 h-12 rounded-lg bg-gray-50 flex items-center justify-center text-xl">🔐</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900">Ledger Nano X</h3>
+                            <p class="text-sm text-slate-500">Standard di sicurezza Hardware Wallet.</p>
+                        </div>
+                    </div>
+                    <span class="text-gray-300 group-hover:text-slate-900 transition">→</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-8 text-center serif-font">Prossime Opportunità Airdrop</h2>
+        <div class="glass-panel rounded-xl overflow-hidden">
+            <table class="w-full text-left text-sm">
+                <thead class="bg-gray-50/50 border-b border-gray-100">
+                    <tr>
+                        <th class="p-5 text-slate-400 font-medium uppercase tracking-wider text-xs">Protocollo</th>
+                        <th class="p-5 text-slate-400 font-medium uppercase tracking-wider text-xs">Potenziale</th>
+                        <th class="p-5 text-slate-400 font-medium uppercase tracking-wider text-xs text-right">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100/50">
+                    <tr class="hover:bg-gray-50/50 transition">
+                        <td class="p-5 font-bold text-slate-800">LayerZero</td>
+                        <td class="p-5"><span class="bg-emerald-50 text-emerald-700 py-1 px-3 rounded-full text-[10px] font-bold tracking-wide border border-emerald-100">ALTO $$$</span></td>
+                        <td class="p-5 text-right text-blue-600 font-bold text-xs uppercase tracking-wide">● Attivo</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50/50 transition">
+                        <td class="p-5 font-bold text-slate-800">Linea Build</td>
+                        <td class="p-5"><span class="bg-emerald-50 text-emerald-700 py-1 px-3 rounded-full text-[10px] font-bold tracking-wide border border-emerald-100">ALTO $$$</span></td>
+                        <td class="p-5 text-right text-blue-600 font-bold text-xs uppercase tracking-wide">● Attivo</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="p-4 bg-gray-50/50 border-t border-gray-100 text-center">
+                <a href="Crypto_Smart_Ebook.pdf" class="text-slate-600 font-medium text-xs hover:text-blue-700 transition">Scarica la guida per la procedura completa →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-gray-200 bg-white">
+        <div class="max-w-6xl mx-auto text-center px-6">
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="https://t.me/+_sTBM3XMN_oxYWE0" class="text-slate-400 hover:text-blue-600 transition font-medium">Telegram</a>
+                <a href="https://www.tiktok.com/@next_gen_finance" class="text-slate-400 hover:text-black transition font-medium">TikTok</a>
+            </div>
+            <p class="text-slate-400 text-xs leading-relaxed">
+                © 2025 NextGen Finance.<br>
+                Il contenuto è a scopo educativo e non costituisce consulenza finanziaria.
+            </p>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-6 left-6 right-6 md:hidden z-50">
+        <a href="Crypto_Smart_Ebook.pdf" download class="block w-full bg-slate-900 text-white text-center font-bold py-4 rounded-xl shadow-2xl border border-white/10">
+            Scarica Guida Gratis
+        </a>
+    </div>
 
 </body>
 </html>
